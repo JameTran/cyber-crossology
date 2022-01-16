@@ -485,12 +485,12 @@ def form_submitted(request):
         if field.type == 'checkbox' and field.checked:
             jp.Div(text='Logging Enabled', a=wp, classes='text-lg m-1 p-1')
     ab = '\n'.join(av[i:i+25] for i in range(0, len(av), 25))
-    jp.P(text=ab, a=wp, classes="font-mono tracking-wide text-justify w-1/2 bg-white shadow rounded")
+    jp.P(text=ab, a=wp, classes="font-mono tracking-wide text-justify w-1/3 bg-white shadow rounded")
     jp.Div(text='Blank: ', a=wp, classes='text-xl m-2 p-2')
-    jp.P(text=a.display(), a=wp, classes="font-mono tracking-wide text-justify w-1/2 bg-white shadow rounded")
+    jp.P(text=a.display(), a=wp, classes="font-mono tracking-wide text-justify w-1/3 bg-white shadow rounded")
     jp.Div(text='Legend: ', a=wp, classes='text-xl m-2 p-2')
     jp.Div(text=a.legend(), a=wp, classes='text-lg m-1 p-1')
-    jp.P(text=(len(a.current_word_list), 'out of', len(word_list)), a=wp, classes='text-lg m-1 p-1')
+    jp.P(text=(len(a.current_word_list), 'out of', len(word_list)), a=wp, classes='padding: 0.25rem text-lg m-1 p-1')
     return wp
 
 # field.type in ['text', 'password']:
