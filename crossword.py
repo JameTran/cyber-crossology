@@ -395,18 +395,33 @@ word_list = [
     ['snicker', 'A snide, slightly stifled laugh.'],
 ]
 word_owo = word_list = [
-    ['GAP', 'The dried, orange yellow plant used to as dye and as a cooking spice.'],
-    ['ALBUM', 'Dark, sour bread made from coarse ground rye.'],
-    ['FABLE', 'An agent, such as yeast, that cause batter or dough to rise..'],
-    ['CREST', 'Musical conclusion of a movement or composition.'],
-    ['EYE', 'A heroic champion or paragon of chivalry.'],
-    ['AFC', 'Shifting the emphasis of a beat to the normally weak beat.'],
-    ['GLARE', 'A large bird of the ocean having a hooked beek and long, narrow wings.'],
-    ['harp', 'Musical instrument with 46 or more open strings played by plucking.'],
-    ['ABBEY', 'A solid cylinder or disk that fits snugly in a larger cylinder and moves under pressure as in an engine.'],
-    ['PULSE', 'A smooth chery candy made from suger, butter, cream or milk with flavoring.'],
-    ['MET', 'A rock-like deposit of organism skeletons that make up reefs.'], ]
-a = Crossword(7, 10, '-', 10000, word_owo)
+    ['RELIGION', '... my ___ is to do good (Thomas Paine)'],
+    ['RELIGIOUS', 'An often tax exempt type of organization'],
+    ['ISLAM', 'Major religion in Malaysia'],
+    ['POLITICS', 'Delicate first-date topic'],
+    ['ATHEISM', 'Fatherless state?'],
+    ['CATHOLICISM', 'Many practice it'],
+    ['RELIGIOSITY', 'Devoutness'],
+    ['POLITICAL', 'Man is by nature a ___ animal: Aristotle'],
+    ['BIBLE', 'Numbers can be found in it'],
+    ['ISLAMIC', 'Pertaining to the Five Pillars'],
+    ['THEISM', 'Basic faith'], 
+    ['BELIEF', 'Credence'],
+    ['CHURCH', 'Mass medium?'], 
+    ['ATHEIST', 'One you won\'t find in a foxhole?'],
+    ['CATHOLIC', 'Like the University of Notre Dame'],
+    ['POLITIC', 'Shrewdly tactful'],
+    ['ATHEISTIC', 'Rejecting higher authority?'],
+    ['WAR', 'General concern?'],
+    ['BIBLICAL', 'Like some thoroughly examined passages'],
+    ['FAITH', 'It may be blind'],
+    ['CHRISTIAN', 'Bounty mutineer'],
+    ['PHILOSOPHY', 'Spinoza\'s specialty'],
+    ['CULTURE', 'Lab dish subject'],
+    ['GOD', 'Ariana Grande\'s \"___ Is A Woman\"'],
+    ['MARRIAGE', 'Two-party system?'],
+     ]
+a = Crossword(25, 38, '-', 10000, word_owo)
 a.compute_crossword(2)
 print(a.word_bank())
 print(a.solution())

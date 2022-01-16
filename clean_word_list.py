@@ -46,8 +46,29 @@ for i in l:
         the_words_alpha.append(i.upper())
         count += 1
 
-acc_words = [i for i in the_words_alpha if i in words.words()]
-print(acc_words)
+
+words_upper = []
+for w in words.words():
+    words_upper.append(w.upper())
+
+new_list = []
+for i in the_words_alpha:
+    print("uwu \n")
+    if i in words_upper:
+        if i == the_words_alpha[-1]:
+            new_list.append(i)
+            print(i)
+        else:
+            new_list.append(i + "\n")
+            print(i + "\n")
+
+fpp = open("the_words_singular.txt", 'w')
+fpp.writelines(new_list)
+fpp.close()
+
+
+        
+
 
 
 
