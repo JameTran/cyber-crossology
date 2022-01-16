@@ -1,5 +1,8 @@
 from curses.ascii import isalpha, isupper
 from hashlib import new
+import nltk
+#nltk.download('words')
+from nltk.corpus import words
 
 
 with open('word_list_unclean.txt') as f:
@@ -42,6 +45,10 @@ for i in l:
     if i.isalpha() == True:
         the_words_alpha.append(i.upper())
         count += 1
+
+acc_words = [i for i in the_words_alpha if i in words.words()]
+print(acc_words)
+
 
 
 
