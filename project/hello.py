@@ -472,6 +472,7 @@ def form_test():
 # print(a.debug)
 # end_full = float(time.time())
 #print(end_full - start_full)
+a = Crossword(25, 38, '-', 10000, word_owo)
 
 @jp.SetRoute('/form_submitted')
 def form_submitted(request):
@@ -484,9 +485,9 @@ def form_submitted(request):
         if field.type == 'checkbox' and field.checked:
             jp.Div(text='Logging Enabled', a=wp, classes='text-lg m-1 p-1')
     ab = '\n'.join(av[i:i+25] for i in range(0, len(av), 25))
-    jp.P(text=ab, a=wp, classes="w-1/2 bg-white shadow rounded")
+    jp.P(text=ab, a=wp, classes="font-mono tracking-wide text-justify w-1/2 bg-white shadow rounded")
     jp.Div(text='Blank: ', a=wp, classes='text-xl m-2 p-2')
-    jp.P(text=a.display(), a=wp, classes="w-1/2 bg-white shadow rounded")
+    jp.P(text=a.display(), a=wp, classes="font-mono tracking-wide text-justify w-1/2 bg-white shadow rounded")
     jp.Div(text='Legend: ', a=wp, classes='text-xl m-2 p-2')
     jp.Div(text=a.legend(), a=wp, classes='text-lg m-1 p-1')
     jp.P(text=(len(a.current_word_list), 'out of', len(word_list)), a=wp, classes='text-lg m-1 p-1')
@@ -496,7 +497,7 @@ def form_submitted(request):
 #             jp.Div(text=f'{field.placeholder}:  {field.value}', a=wp, classes='text-lg m-1 p-1')
 #         elif 
 
-a = Crossword(25, 38, '-', 10000, word_owo)
+#python3 hello.py
 
 
 
