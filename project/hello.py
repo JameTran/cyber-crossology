@@ -423,10 +423,66 @@ word_owo = word_list = [
     ['MARRIAGE', 'Two-party system?'],
      ]
 
+input_classes = "m-2 bg-gray-200 border-2 border-gray-200 rounded w-64 py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-purple-500"
+p_classes = 'm-2 p-2 h-32 text-xl border-2'
+button_classes = 'bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-2'
+input_classes = 'border m-2 p-2'
+my_paragraph_design = "w-64 bg-blue-500 m-2 hover:bg-sky-900 text-white font-bold py-2 px-4 rounded"
+
+session_data = {}
+
+async def my_input(self, msg):
+    self.div.text = self.value
+
+def form_test():
+    wp = jp.WebPage()
+    wp.display_url = '/fill_form'
+
+    form1 = jp.Form(a=wp, classes='border m-1 p-1 w-64')
+
+    dim_label = jp.Label(text='Dimensions', classes='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2', a=form1)
+    in1 = jp.Input(placeholder='Dimensions', a=form1, classes='form-input')
+    dim_label.for_component = in1
+
+    theme_label = jp.Label(classes='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-2', a=form1)
+    jp.Div(text='Theme', classes='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2', a=theme_label)
+    jp.Input(placeholder='Theme', a=theme_label, classes='form-input')
+
+    check_label = jp.Label(classes='text-sm block', a=form1)
+    jp.Input(type='checkbox', a=check_label, classes='form-checkbox text-blue-500')
+    jp.Span(text='Enable Logging', a=check_label, classes= 'ml-2')
+    submit_button = jp.Input(value='Generate Crossword', type='submit', a=form1, classes=button_classes)
+
+    def submit_form(self, msg):
+        print(msg)
+        msg.page.redirect = '/form_submitted'
+        session_data[msg.session_id] = msg.form_data
+
+    form1.on('submit', submit_form)
+
+    return wp
+
+@jp.SetRoute('/form_submitted')
+def form_submitted(request):
+    wp = jp.WebPage()
+    wp.display_url = '/thanks'
+    a.compute_crossword()
+    av = a.solution()
+    jp.Div(text='Crossword Generated: ', a=wp, classes='text-xl m-2 p-2')
+    for field in session_data[request.session_id]:
+        if field.type == 'checkbox' and field.checked:
+            jp.Div(text='Logging Enabled', a=wp, classes='text-lg m-1 p-1')
+    ab = '\n'.join(av[i:i+25] for i in range(0, len(av), 25))
+    jp.Div(text=ab, a=wp)
+    return wp
+
+# field.type in ['text', 'password']:
+#             jp.Div(text=f'{field.placeholder}:  {field.value}', a=wp, classes='text-lg m-1 p-1')
+#         elif 
 
 a = Crossword(25, 38, '-', 10000, word_owo)
 
-my_paragraph_design = "w-64 bg-blue-500 m-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+
 
 def thestuff():
     a.compute_crossword()
@@ -436,7 +492,8 @@ def thestuff():
     #r = jp.P(text=type(a.solution()), classes=my_paragraph_design)
     return wp
 
-jp.justpy(thestuff)
+#jp.justpy(thestuff)
+jp.justpy(form_test)
 
     
 
