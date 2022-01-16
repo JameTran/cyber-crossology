@@ -344,7 +344,7 @@ class Crossword(object):
         """Must order first."""
         outStr = ''
         for word in self.current_word_list:
-            outStr += '%d. (%d,%d) %s: %s\n' % (word.number, word.col, word.row, word.down_across(), word.clue)
+            outStr += '%d. (%d,%d) %s: %s\n' % (word.number, word.row, word.col, word.down_across(), word.clue)
         return outStr
 
 
@@ -425,6 +425,7 @@ a = Crossword(25, 38, '-', 10000, word_owo)
 a.compute_crossword(2)
 print(a.word_bank())
 print(a.solution())
+print(type(a.solution()))
 #print(a.word_find())
 print(a.display())
 print(a.legend())
