@@ -461,6 +461,17 @@ def form_test():
     form1.on('submit', submit_form)
 
     return wp
+# a.compute_crossword(2)
+# print(a.word_bank())
+# print(a.solution())
+# print(type(a.solution()))
+# print(a.word_find())
+# print(a.display())
+# print(a.legend())
+# print(len(a.current_word_list), 'out of', len(word_list))
+# print(a.debug)
+# end_full = float(time.time())
+#print(end_full - start_full)
 
 @jp.SetRoute('/form_submitted')
 def form_submitted(request):
@@ -473,7 +484,12 @@ def form_submitted(request):
         if field.type == 'checkbox' and field.checked:
             jp.Div(text='Logging Enabled', a=wp, classes='text-lg m-1 p-1')
     ab = '\n'.join(av[i:i+25] for i in range(0, len(av), 25))
-    jp.Div(text=ab, a=wp)
+    jp.P(text=ab, a=wp, classes="w-1/2 bg-white shadow rounded")
+    jp.Div(text='Blank: ', a=wp, classes='text-xl m-2 p-2')
+    jp.P(text=a.display(), a=wp, classes="w-1/2 bg-white shadow rounded")
+    jp.Div(text='Legend: ', a=wp, classes='text-xl m-2 p-2')
+    jp.Div(text=a.legend(), a=wp, classes='text-lg m-1 p-1')
+    jp.P(text=(len(a.current_word_list), 'out of', len(word_list)), a=wp, classes='text-lg m-1 p-1')
     return wp
 
 # field.type in ['text', 'password']:
@@ -507,14 +523,3 @@ jp.justpy(form_test)
 
 
 
-# a.compute_crossword(2)
-# print(a.word_bank())
-# print(a.solution())
-# print(type(a.solution()))
-# print(a.word_find())
-# print(a.display())
-# print(a.legend())
-# print(len(a.current_word_list), 'out of', len(word_list))
-# print(a.debug)
-# end_full = float(time.time())
-#print(end_full - start_full)
