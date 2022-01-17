@@ -1,4 +1,4 @@
 * linguist-vendored
 *.py linguist-vendored=false
 *.html linguist-detectable=false
-*.htm inguist-detectable=false
+*.htm linguist-detectable=false
