@@ -1,8 +1,5 @@
 
 ## Code from Googles Semantic Encoder Toolkit
-
-
-
 #@title Load the Universal Sentence Encoder's TF Hub module
 from absl import logging
 
